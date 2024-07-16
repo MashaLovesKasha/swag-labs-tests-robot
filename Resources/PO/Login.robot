@@ -1,8 +1,9 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library     SeleniumLibrary
 Resource    ../variables.robot
 
 *** Variables ***
+# I could use data-test attribute here, but it works easier with id
 ${LOGIN_BUTTON}      id=login-button
 ${USERNAME_FIELD}    id=user-name
 ${PASSWORD_FIELD}    id=password
