@@ -14,6 +14,7 @@ Navigate To
 
 Verify Page Loaded
     Wait until page contains     Products
+    Location Should Be     ${URL}/inventory.html
 
 Select Sorting Option
     [Arguments]     ${option}
@@ -48,5 +49,22 @@ Get Item Names
 
 Get Attribute Values
     [Arguments]     ${attribute}
+    [Documentation]     Get names or prices of all items
     ${values} =     Run Keyword If     '${attribute}' == 'price'     Get Item Prices     ELSE     Get Item Names
     RETURN     ${values}
+
+Transform Item Name To Data Test Attribute
+    [Arguments]     ${item_name}
+    [Documentation]  Transform the item name to create the data-test attribute for "Add to cart" button
+    ${add_to_cart_data_test-attribute}     Set Variable     add-to-cart-${item_name.lower().replace(' ', '-')}
+    RETURN     ${add_to_cart_data_test-attribute}
+
+Click Add To Cart Button
+    [Arguments]     ${item_name}
+    [Documentation]  Click the "Add to cart" button for the specified item
+    ${add_to_cart_data_test-attribute}     Transform Item Name To Data Test Attribute     ${item_name}
+    Click Element     //*[@data-test="${add_to_cart_data_test-attribute}"]
+
+Click Item Name
+    [Arguments]     ${item_name}
+    Click Link      ${item_name}

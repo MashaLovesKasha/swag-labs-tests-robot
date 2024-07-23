@@ -11,7 +11,7 @@ Begin Web Test
 
 Begin Web Test As Logged In User
     Begin Web Test
-    Login.Go to Item List Page As Logged In User
+    Login.Go To Item List Page As Logged In User
 
 End Web Test
     Close all browsers

@@ -1,15 +1,14 @@
 *** Settings ***
 Library     SeleniumLibrary
 Resource    ../Resources/Sorting.robot
-Resource    ../Resources/Login.robot
 Resource    ../Resources/CommonWeb.robot
 
-Test Setup        Begin Web Test As Logged In User
-Test Teardown     End Web Test
-#Suite Setup       Set Selenium Speed     0.3s
+Test Setup        CommonWeb.Begin Web Test As Logged In User
+Test Teardown     CommonWeb.End Web Test
 
 
 *** Test Cases ***
+# I created 3 keywords to check the sorting, these tests demonstrate all of them
 Customer sorts product items by price (low to high)
     Sorting.Check Sorting By Price    Price (low to high)
 

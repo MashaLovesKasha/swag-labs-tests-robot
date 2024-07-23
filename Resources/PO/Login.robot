@@ -15,13 +15,13 @@ Navigate To
 Verify Page Loaded
     Wait until page contains element    ${LOGIN_BUTTON}
     
-Fill in "username" field
+Fill In "Username" Field
     [Arguments]    ${username}
     Input Text    ${USERNAME_FIELD}    ${USERNAME}
     
-Fill in "password" field
+Fill In "Password" Field
     [Arguments]    ${password}
     Input Text    ${PASSWORD_FIELD}    ${PASSWORD}
     
-Click "Login" button
+Click "Login" Button
     Click Button    ${LOGIN_BUTTON}
