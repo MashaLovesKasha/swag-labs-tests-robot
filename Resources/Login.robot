@@ -5,18 +5,18 @@ Resource    ./CommonWeb.robot
 
 
 *** Keywords ***
-Go to Login Page
+Go To Login Page
     Login.Navigate To
     Login.Verify Page Loaded
 
-Log in
-    [Arguments]    ${username}    ${password}
-    Login.Fill in "username" field    ${username}
-    Login.Fill in "password" field    ${password}
-    Login.Click "Login" button
+Log In
+    [Arguments]     ${username}     ${password}
+    Login.Fill In "Username" Field     ${username}
+    Login.Fill In "Password" Field     ${password}
+    Login.Click "Login" Button
 
-Go to Item List Page As Logged In User
-    Login.Go to Login Page
-    Login.Log in     ${STANDARD_USERNAME}     ${PASSWORD}
+Go To Item List Page As Logged In User
+    Login.Go To Login Page
+    Login.Log In     ${STANDARD_USERNAME}     ${PASSWORD}
     Verify URL     ${URL}/inventory.html
     ItemList.Verify Page Loaded
