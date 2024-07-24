@@ -21,15 +21,13 @@ Customer successfully purchases products
     Log     Go to the cart and check the number of items
     Purchase.Check Number Of Cart Items     3
 
-    Log     Go to checkout, fill user info, check the amount of items
-
+    Log     Go to checkout, fill user info, check the number of items
+    Purchase.Fill User Info     ${FIRST_NAME}    ${LAST_NAME}     ${POSTAL_CODE}
+    Purchase.Check Number Of Checkout Items     3
 
     Log     Check important overview details
 
 
     Log     Finish checkout and check the success message
-
-
-    Log     Go to the item page and add it to the cart from the item page
 
 

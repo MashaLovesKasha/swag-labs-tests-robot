@@ -2,6 +2,8 @@
 Resource    ./PO/ItemList.robot
 Resource    ./PO/ItemPage.robot
 Resource    ./PO/Cart.robot
+Resource    ./PO/Checkout.robot
+Resource    ./PO/Common.robot
 
 
 *** Keywords ***
@@ -23,5 +25,19 @@ Check Number Of Cart Items
     [Arguments]     ${expected_items_count}
     Cart.Navigate To
     Cart.Verify Page Loaded
-    Cart.Verify Number Of Cart Items     ${expected_items_count}
+    Common.Verify Number Of Items     ${expected_items_count}
+
+Fill User Info
+    [Arguments]     ${first_name}     ${last_name}     ${postal_code}
+    Checkout.Navigate To Checkout First Step
+    Checkout.Verify Checkout First Step Loaded
+    Checkout.Fill User Info     ${first_name}     ${last_name}     ${postal_code}
+    Checkout.Click Continue
+
+Check Number Of Checkout Items
+    [Arguments]     ${expected_items_count}
+    Checkout.Verify Checkout Second Step Loaded
+    Common.Verify Number Of Items     ${expected_items_count}
+
+
 
