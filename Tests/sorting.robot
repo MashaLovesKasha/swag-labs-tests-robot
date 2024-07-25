@@ -6,7 +6,6 @@ Resource    ../Resources/CommonWeb.robot
 Test Setup        CommonWeb.Begin Web Test As Logged In User
 Test Teardown     CommonWeb.End Web Test
 
-
 *** Test Cases ***
 # I created 3 keywords to check the sorting, these tests demonstrate all of them
 Customer sorts product items by price (low to high)

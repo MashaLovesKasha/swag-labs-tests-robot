@@ -6,12 +6,11 @@ Resource    ../Resources/CommonWeb.robot
 Test Setup       CommonWeb.Begin Web Test
 Test Teardown    CommonWeb.End Web Test
 
-
 *** Test Cases ***
 User successfully logged in
     Login.Go To Login Page
     Login.Log In    ${STANDARD_USERNAME}    ${PASSWORD}
-    Verify URL    ${URL}/inventory.html
+    Location Should Be    ${URL}/inventory.html
 
 User is locked out from the platform
     Login.Go To Login Page

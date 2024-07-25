@@ -19,7 +19,7 @@ Verify Page Loaded
 Select Sorting Option
     [Arguments]     ${option}
     Select From List By Label     ${SORTING_DROPDOWN}     ${option}
-    Sleep     1s
+    Sleep     0.1 s
 
 Convert Price Text To Numeric Price
     [Arguments]     ${text}
@@ -59,7 +59,7 @@ Transform Item Name To Data Test Attribute
     ${add_to_cart_data_test-attribute}     Set Variable     add-to-cart-${item_name.lower().replace(' ', '-')}
     RETURN     ${add_to_cart_data_test-attribute}
 
-Click Add To Cart Button
+Click "Add To Cart" Button
     [Arguments]     ${item_name}
     [Documentation]  Click the "Add to cart" button for the specified item
     ${add_to_cart_data_test-attribute}     Transform Item Name To Data Test Attribute     ${item_name}

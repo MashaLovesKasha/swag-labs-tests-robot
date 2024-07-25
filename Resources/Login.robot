@@ -1,8 +1,6 @@
 *** Settings ***
 Resource    ./PO/Login.robot
 Resource    ./PO/ItemList.robot
-Resource    ./CommonWeb.robot
-
 
 *** Keywords ***
 Go To Login Page
@@ -18,5 +16,5 @@ Log In
 Go To Item List Page As Logged In User
     Login.Go To Login Page
     Login.Log In     ${STANDARD_USERNAME}     ${PASSWORD}
-    Verify URL     ${URL}/inventory.html
+    Location Should Be     ${URL}/inventory.html
     ItemList.Verify Page Loaded

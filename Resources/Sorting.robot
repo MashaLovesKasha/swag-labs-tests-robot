@@ -2,7 +2,6 @@
 Library     Collections
 Resource    ./PO/ItemList.robot
 
-
 *** Keywords ***
 # I have 2 solutions to check sorting here - separate keywords for price and name sorting
 # and common keyword, which can check both. Depending on the sorting future I'd keep one or another solution.
@@ -24,7 +23,7 @@ Check Sorting By Price
     Sort List     ${expected_sorted_prices}
     Run Keyword If     '${order}' == 'Price (high to low)'     Reverse List     ${expected_sorted_prices}
     # Compare the programmatically sorted list with the list obtained after sorting in UI
-    Should Be Equal     ${prices_after_sorting}     ${expected_sorted_prices}
+    Should Be Equal     ${prices_after_sorting}     ${expected_sorted_prices}     Prices after sorting in UI don't match expected sorted prices
 
 
 Check Sorting By Name
@@ -40,7 +39,7 @@ Check Sorting By Name
     Sort List     ${expected_sorted_names}
     Run Keyword If     '${order}' == 'Name (Z to A)'     Reverse List     ${expected_sorted_names}
     # Compare the programmatically sorted list with the list obtained after sorting in UI
-    Should Be Equal     ${names_after_sorting}     ${expected_sorted_names}
+    Should Be Equal     ${names_after_sorting}     ${expected_sorted_names}     Prices after sorting in UI don't match expected sorted prices
 
 
 Check Sorting
@@ -50,16 +49,16 @@ Check Sorting
     #  ${order} - the order to sort by, which can include 'Price (low to high)', 'Price (high to low)', 'Name (A to Z)', or 'Name (Z to A)'
 
     # Get the original list of attribute values
-    ${values_before_sorting}  ItemList.Get Attribute Values  ${attribute}
+    ${values_before_sorting}     ItemList.Get Attribute Values     ${attribute}
 
     # Sort the original list choosing the sorting option in UI
-    ItemList.Select Sorting Option  ${order}
-    ${values_after_sorting}  ItemList.Get Attribute Values  ${attribute}
+    ItemList.Select Sorting Option     ${order}
+    ${values_after_sorting}     ItemList.Get Attribute Values     ${attribute}
 
     # Create a copy of the original list to sort it programmatically
-    ${expected_sorted_values}   Copy List   ${values_before_sorting}
-    Sort List  ${expected_sorted_values}
-    Run Keyword If  '${order}' == 'Name (Z to A)' or '${order}' == 'Price (high to low)'  Reverse List  ${expected_sorted_values}
+    ${expected_sorted_values}     Copy List     ${values_before_sorting}
+    Sort List     ${expected_sorted_values}
+    Run Keyword If     '${order}' == 'Name (Z to A)' or '${order}' == 'Price (high to low)'     Reverse List     ${expected_sorted_values}
 
     # Compare the programmatically sorted list with the list obtained after sorting in UI
-    Should Be Equal  ${values_after_sorting}  ${expected_sorted_values}
+    Should Be Equal     ${values_after_sorting}     ${expected_sorted_values}     Prices after sorting in UI don't match expected sorted prices

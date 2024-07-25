@@ -1,5 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
+Resource    ../variables.robot
 
 *** Variables ***
 ${ADD_TO_CART_BUTTON}     //*[@data-test="add-to-cart"]
@@ -8,8 +9,8 @@ ${ADD_TO_CART_BUTTON}     //*[@data-test="add-to-cart"]
 Verify Page Loaded
     [Arguments]     ${item_name}
     Wait until page contains     Back to products
-    Wait until page contains     ${item_name}
-    Location Should Contain      /inventory-item.html
+    Page Should Contain     ${item_name}
+    Location Should Contain      ${URL}/inventory-item.html
 
-Click Add To Cart Button
+Click "Add To Cart" Button
     Click Element     ${ADD_TO_CART_BUTTON}

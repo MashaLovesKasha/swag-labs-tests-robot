@@ -11,24 +11,24 @@ ${CONTINUE_BUTTON}       //*[@data-test="continue"]
 ${FINISH_BUTTON}         //*[@data-test="finish"]
 
 *** Keywords ***
-Navigate To Checkout First Step
+Navigate To
     Click Element     ${CHECKOUT_BUTTON}
 
-Verify Checkout First Step Loaded
+Verify First Step Loaded
     Wait until page contains     Checkout: Your Information
     Location Should Be     ${URL}/checkout-step-one.html
 
-Verify Checkout Second Step Loaded
+Verify Second Step Loaded
     Wait until page contains     Checkout: Overview
     Location Should Be     ${URL}/checkout-step-two.html
 
-Verify Checkout Finish Step Loaded
+Verify Finish Step Loaded
     Wait until page contains     Checkout: Complete!
-    Location Should Be     ${URL}/checkout-complete.html
+    Location Should Be      ${URL}/checkout-complete.html
     Page Should Contain     Thank you for your order!
     Page Should Contain     Your order has been dispatched, and will arrive just as fast as the pony can get there!
 
-Fill User Info
+Fill In User Info
     [Arguments]     ${first_name}     ${last_name}     ${postal_code}
     [Documentation]     Fill in user information on the first checkout step
     Input Text     ${FIRST_NAME_FIELD}     ${first_name}

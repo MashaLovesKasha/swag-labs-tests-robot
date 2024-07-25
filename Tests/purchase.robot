@@ -1,14 +1,11 @@
 *** Settings ***
 Library     SeleniumLibrary
-Resource    ../Resources/Login.robot
 Resource    ../Resources/Purchase.robot
 Resource    ../Resources/CommonWeb.robot
 Resource    ../Resources/PO/Checkout.robot
 
 Test Setup        CommonWeb.Begin Web Test As Logged In User
 Test Teardown     CommonWeb.End Web Test
-Suite Setup       Set Selenium Speed     0.3s
-
 
 *** Test Cases ***
 Customer successfully purchases products
@@ -22,8 +19,8 @@ Customer successfully purchases products
     Log     Go to the cart and check the number of items
     Purchase.Verify Number Of Cart Items     3
 
-    Log     Go to checkout, fill user info, check the number of items and important overview details
-    Purchase.Fill User Info     ${FIRST_NAME}    ${LAST_NAME}     ${POSTAL_CODE}
+    Log     Go to checkout, fill in user info, check the number of items and important overview details
+    Purchase.Fill In User Info     ${FIRST_NAME}    ${LAST_NAME}     ${POSTAL_CODE}
     Purchase.Verify Number Of Checkout Items     3
     Checkout.Verify Overview Details
 
