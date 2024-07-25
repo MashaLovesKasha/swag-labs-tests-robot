@@ -3,6 +3,7 @@ Library     SeleniumLibrary
 Resource    ../Resources/Login.robot
 Resource    ../Resources/Purchase.robot
 Resource    ../Resources/CommonWeb.robot
+Resource    ../Resources/PO/Checkout.robot
 
 Test Setup        CommonWeb.Begin Web Test As Logged In User
 Test Teardown     CommonWeb.End Web Test
@@ -19,15 +20,12 @@ Customer successfully purchases products
     Purchase.Add Item To Cart From Item Page     Sauce Labs Backpack
 
     Log     Go to the cart and check the number of items
-    Purchase.Check Number Of Cart Items     3
+    Purchase.Verify Number Of Cart Items     3
 
-    Log     Go to checkout, fill user info, check the number of items
+    Log     Go to checkout, fill user info, check the number of items and important overview details
     Purchase.Fill User Info     ${FIRST_NAME}    ${LAST_NAME}     ${POSTAL_CODE}
-    Purchase.Check Number Of Checkout Items     3
-
-    Log     Check important overview details
-
+    Purchase.Verify Number Of Checkout Items     3
+    Checkout.Verify Overview Details
 
     Log     Finish checkout and check the success message
-
-
+    Purchase.Finish Checkout

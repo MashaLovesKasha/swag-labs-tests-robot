@@ -21,7 +21,7 @@ Add Item To Cart From Item Page
     ItemPage.Click Add To Cart Button
     Log     Item ${item_name} added to cart
 
-Check Number Of Cart Items
+Verify Number Of Cart Items
     [Arguments]     ${expected_items_count}
     Cart.Navigate To
     Cart.Verify Page Loaded
@@ -34,10 +34,11 @@ Fill User Info
     Checkout.Fill User Info     ${first_name}     ${last_name}     ${postal_code}
     Checkout.Click Continue
 
-Check Number Of Checkout Items
+Verify Number Of Checkout Items
     [Arguments]     ${expected_items_count}
     Checkout.Verify Checkout Second Step Loaded
     Common.Verify Number Of Items     ${expected_items_count}
 
-
-
+Finish Checkout
+    Checkout.Click Finish
+    Checkout.Verify Checkout Finish Step Loaded
