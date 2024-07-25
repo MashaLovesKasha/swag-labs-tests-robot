@@ -6,8 +6,6 @@ Tests for Swag Labs application https://www.saucedemo.com/
 
 You need python >= 3.11 to be installed
 
-Install webdriver for browser (for example chrome https://chromedriver.chromium.org/downloads)
-
 ## Setup
 
 Prepare local dev environment
