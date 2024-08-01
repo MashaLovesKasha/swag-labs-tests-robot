@@ -7,14 +7,15 @@ Resource    ../variables.robot
 ${SORTING_DROPDOWN}    //*[@data-test="product-sort-container"]
 ${ITEM_PRICES}         //*[@data-test="inventory-item-price"]
 ${ITEM_NAMES}          //*[@data-test="inventory-item-name"]
+${ITEM_LIST_TITLE}     Products
 
 *** Keywords ***
 Navigate To
-    Go to     ${URL}/inventory.html
+    Go to     ${ITEM_LIST_URL}
 
 Verify Page Loaded
-    Wait until page contains     Products
-    Location Should Be     ${URL}/inventory.html
+    Wait until page contains     ${ITEM_LIST_TITLE}
+    Location Should Be     ${ITEM_LIST_URL}
 
 Select Sorting Option
     [Arguments]     ${option}

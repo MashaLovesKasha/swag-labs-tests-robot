@@ -50,4 +50,13 @@ You can run them one by one, test order doesn't matter. To run tests separately 
 
 `robot -d results tests/login.robot`
 
+You can also run tests with specific tags:
+
+`robot -d results --include login tests/`
+
+`robot -d results --include loginANDsuccess tests/`
+
+`robot -d results --include loginORpurchase tests/`
+
+
 To see the report, open `Results/report.html` file

@@ -1,5 +1,4 @@
 *** Settings ***
-Library     SeleniumLibrary
 Resource    ../Resources/Purchase.robot
 Resource    ../Resources/CommonWeb.robot
 Resource    ../Resources/PO/Checkout.robot
@@ -9,6 +8,8 @@ Test Teardown     CommonWeb.End Web Test
 
 *** Test Cases ***
 Customer successfully purchases products
+    [Tags]    purchase
+
     Log     Add 2 items to the cart from the item list
     Purchase.Add Item To Cart From Item List     Sauce Labs Fleece Jacket
     Purchase.Add Item To Cart From Item List     Test.allTheThings() T-Shirt (Red)
